@@ -1,6 +1,6 @@
 # cobaltos-patcher
-Former Cobalt Network's RaQ OS does not easily run in VirtualBox.
-This repo provides everything you need to make it run in VirtualBox.
+Former Cobalt Network's / Sun Microsystem's RaQ OS does not run in VirtualBox.
+This repo provides everything to patch it for running in VirtualBox.
 
 
 # Too lazy? VM image is here!
