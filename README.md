@@ -43,7 +43,7 @@ This will map the Ports 22, 80 and 81 inside the VM to your `localhost:` (127.0.
 This is required later on when interacting with the VM over the network.
 
 
-### Import the Template VM
+### Import the Template VM
 
 Get the OVA file from here:
 
@@ -256,7 +256,7 @@ mount -o remount,ro /dev/hda1
 /sbin/reboot -f
 ```
 
-## I want to change the network settings
+## I want to change the network settings
 
 Sure, assuming you have already installed the Cobalt OS, easiest to do is via the recovery console.
 At the early stage of when the `LILO` line appears, press shift for the LILO prompt.
