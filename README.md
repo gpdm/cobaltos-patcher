@@ -6,7 +6,7 @@ This repo provides everything to patch it for running in VirtualBox.
 # Too lazy? VM image is here!
 
 Yes, a ready-to-run VM image is provided as well, and hosted on [archive.org](https://www.archive.org).
-So to just get up & running, follow the instructions provided on [Cobalt RaQ Virtual Machine]().
+So to just get up & running, follow the instructions provided on [Cobalt RaQ Virtual Machine](https://archive.org/details/virtual-cobalt-raq-3-appliance).
 
 
 # Do it yourself
@@ -19,7 +19,7 @@ On Windows, some steps may a bit different.
 You need some stuff to make this work:
 
  * [VirtualBox](http://www.virtualbox.org)
- * The Cobalt Networks [RaQ restore CD](https://archive.org/download/cobalt_networks_ftp_mirror/raq4.iso) ISO file
+ * The Cobalt Networks [RaQ 3 restore CD](https://archive.org/download/cobalt_networks_ftp_mirror/raq3.iso) ISO file
  * [Knoppix Live 3.7](https://sourceforge.net/projects/knoppix-mirror/files/knoppix/KNOPPIX_V3.7-2004-12-08-EN.iso/download) ISO file
  * [Cobalt OS Patcher](https://github.com/gpdm/cobaltos-patcher/raw/main/cobaltos-patcher.iso) ISO file
 
@@ -74,7 +74,7 @@ Attach the ISO files.
 Via the CLI:
 
 ```
-wget https://archive.org/download/cobalt_networks_ftp_mirror/raq4.iso
+wget https://archive.org/download/cobalt_networks_ftp_mirror/raq3.iso
 wget https://sourceforge.net/projects/knoppix-mirror/files/knoppix/KNOPPIX_V3.7-2004-12-08-EN.iso/download
 wget https://github.com/gpdm/cobaltos-patcher/raw/main/cobaltos-patcher.iso 
 VBoxManage storageattach "Cobalt Emulation" --storagectl IDE --port 0 --device 1 --type dvddrive --medium "KNOPPIX_V3.7-2004-12-08-EN.iso"
@@ -117,6 +117,13 @@ during or after the `lyle super-hack` appears on screen.
 It takes some time, just leave it running and it will eventually complete.
 
 
+## What next?
+
+Once the virtual RaQ 3 appliance has started-up, you may access it from your host via the NAT rules defined further above:
+
+* localhost:2022 to access the RaQ at TCP:22 for SSH access
+* localhost:80 to access the RaQ at TCP:80 for the standard webserver
+* localhost:81 to access the RaQ at TCP:81 for the admin UI
 
 
 # FAQ
@@ -158,7 +165,7 @@ If you believe you have seen other crucial errors, feel free to open an issue ti
 
 Yeah, not really nice, but first filesystem check will fix that.
 
-This symptom is closely related to <FIXME>, so you may follow the procedure outlined there as well.
+This symptom is closely related to [No eth0 at first boot](https://github.com/gpdm/cobaltos-patcher#i-dont-have-eth0-on-the-first-boot), so you may follow the procedure outlined there as well.
   
 
 ## I see boot errors about missing "module char-major-10-140"
@@ -197,10 +204,17 @@ Only the things needed to make it boot in a VM, which are:
 
 Other than that, no changes or adaptions were made to the OS.
 
+
 ## Can the Cobalt patch-sets be applied?
 
 I didn't test that.
 But it should generally work, except for the kernel.
+
+
+## Do you have Cobalt OS patch-sets?
+
+Some of them, yes.
+I archived everything I could find on [cobalt_networks_ftp_mirror](https://archive.org/details/cobalt_networks_ftp_mirror).
 
 
 ## Why are you recompiling the kernel?
@@ -241,18 +255,6 @@ sync
 mount -o remount,ro /dev/hda1
 /sbin/reboot -f
 ```
-
-
-## Why is the RaQ ISO file being called "raq4.iso"? You're talking about RaQ 3!
-
-That's correct.
-The ISO file was sourced online, and carried that name.
-
-Though the software collection contained there on is RaQ 3.148, which along with the release manifest found on the ISO file is matching a RaQ 3 appliance.
-Actually, the ISO should be called `raq3.iso`, you are fully correct!
-
-I just kept the names as is.
-
 
 ## I want to change the network settings
 
