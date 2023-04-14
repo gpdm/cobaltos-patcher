@@ -205,7 +205,7 @@ Only the things needed to make it boot in a VM, which are:
 Other than that, no changes or adaptions were made to the OS.
 
 
-## Can the Cobalt patch-sets be applied?
+## Can the Cobalt patch-sets be applied?
 
 I didn't test that.
 But it should generally work, except for the kernel.
