@@ -225,7 +225,7 @@ In short, the default Cobalt OS kernel depends on presence of certain hardware,
 hence recompiling it is required to make it work in a standard VM.
 
 
-## What is the login credentials?
+## What is the login credentials?
 
 It's the Cobalt OS factory defaults.
 
